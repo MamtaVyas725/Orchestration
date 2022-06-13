@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace OrchestrationLayerDemo.Controllers
+namespace OrchestrationDemo.Controllers
 {
     //[ApiController]
     // [Route("api/[controller]")]
@@ -23,6 +23,7 @@ namespace OrchestrationLayerDemo.Controllers
     {
         public HttpClient _httpclient;
         public List<string> links = new List<string>();
+        private RootObject currentSearilNo;
         public SerialController()
         {
             _httpclient = new HttpClient();
@@ -31,42 +32,29 @@ namespace OrchestrationLayerDemo.Controllers
         [Route("GetAsyncData")]
         public async Task<IEnumerable<RootObject>> GetAsyncData()
         {
-            using (StreamReader r = new StreamReader(@"C:\Input.json"))
+            using (StreamReader r = new StreamReader(@"C:\Users\mamta.b.vyas\Desktop\poc\input500.json"))
             {
                 //  var watch = System.Diagnostics.Stopwatch.StartNew();
                 // Creating a file
                 string jsonData = r.ReadToEnd();
-                // List<RootObject> items = JsonConvert.DeserializeObject<List<RootObject>>(jsonData);
                 var webclient = new WebClient();
-                var jsonString = webclient.DownloadString(@"C:\Input.json");
+                var jsonString = webclient.DownloadString(@"C:\Users\mamta.b.vyas\Desktop\poc\input500.json");
                 var result = JsonConvert.DeserializeObject<RootObject>(jsonString);
                 Token token = await GetElibilityToken();
-                var tasks = new List<Task<IEnumerable<RootObject>>>();
-
+               
                 _httpclient.DefaultRequestHeaders.Clear();
                 _httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 _httpclient.DefaultRequestHeaders.Add("Authorization", ("Bearer " + token.AccessToken));
                 _httpclient.DefaultRequestHeaders.ConnectionClose = true;
 
-                var batchSize = 50;
+                var batchSize = 20;
                 int numberOfBatches = (int)Math.Ceiling((double)result.Input.Count() / batchSize);
-
+                var tasks = new List<Task<IEnumerable<RootObject>>>();
+               
                 for (int i = 0; i < numberOfBatches; i++)
                 {
-                    result = JsonConvert.DeserializeObject<RootObject>(jsonString);
-                    if (i == 0)
-                    {
-                        // result.Input.ToList().GetRange(i, batchSize); //1-10
-                        result.Input.RemoveRange(50, 50); //10 to 91 remins 0 -10
-                    }
-                    else
-                    {
-                        // result.Input.ToList().GetRange(batchSize, (i+batchSize));
-                        result.Input.RemoveRange(0, 50); //1 to (10*10)
-                    }
-                    //var currentSearilNo =result.Input.Skip(i * batchSize).Take(batchSize); //Here we need to change the logic this this we need to take 100 data on each processing
-                    var currentSearilNo = result;
-                    tasks.Add(GetUsers(currentSearilNo));
+                     var currentSearilNo1 =result.Input.Skip(i * batchSize).Take(batchSize).ToList(); //Here we need to change the logic this this we need to take 100 data on each processing
+                     tasks.Add(GetUsers(currentSearilNo1));
 
                 }
 
@@ -75,14 +63,18 @@ namespace OrchestrationLayerDemo.Controllers
         }
 
 
-        public async Task<IEnumerable<RootObject>> GetUsers(RootObject tasks)
+        public async Task<IEnumerable<RootObject>> GetUsers(List<Person> tasks)
         {
             // Creating a file
-            string myfile = @"C:\Output.json";
-            //var watch = Stopwatch.StartNew();
+            string myfile = @"C:\Users\mamta.b.vyas\Desktop\poc\Output.json";
 
-            var json = JsonConvert.SerializeObject(tasks);
-            //  var myContent = JsonConvert.SerializeObject(SearialNo);
+            var watch = new Stopwatch();
+            watch.Start();
+
+            RootObject wrapper = new RootObject { Input = tasks };
+            string json = JsonConvert.SerializeObject(wrapper);
+
+         
             var buffer = Encoding.UTF8.GetBytes(json);
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
@@ -92,18 +84,20 @@ namespace OrchestrationLayerDemo.Controllers
                  "https://apis-sandbox.intel.com/sc/warranty-entitlement/v1/warranty-details",
                  byteContent)
              .ConfigureAwait(false);
-            var resultContent = response.Content.ReadAsStringAsync().Result;
 
+           var resultContent = response.Content.ReadAsStringAsync().Result;
+            
             //// Appending the given texts
             using (StreamWriter sw = System.IO.File.AppendText(myfile))
             {
                 // sw.WriteLine("actual processing " + elapsedMs);
                 sw.WriteLine(Environment.NewLine);
                 sw.WriteLine(resultContent);
-                // sw.WriteLine("Total Time Taken in Processing", elapsedMs);
+                watch.Stop();
+                sw.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
             }
 
-            var users = JsonConvert.DeserializeObject<IEnumerable<RootObject>>(JsonConvert.SerializeObject(response.Content.ReadAsStringAsync().Result));
+            var users = JsonConvert.DeserializeObject<IEnumerable<RootObject>>(JsonConvert.SerializeObject(resultContent)).ToList();
             return users;
         }
 
