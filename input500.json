@@ -1,0 +1,1804 @@
+{
+  "Input": [
+    {
+      "SerialNumber": "FORMAHEESWOMTST01"
+    },
+    {
+      "SerialNumber": "FORMAHEESWOMTST02"
+    },
+    {
+      "SerialNumber": "FORMAHEESWOMTST03"
+    },
+    {
+      "SerialNumber": "FORMAHEESWOMTST05"
+    },
+    {
+      "SerialNumber": "FORMAHEESWOMTST06"
+    },
+    {
+      "SerialNumber": "FORMAHEESWOMTST07"
+    },
+    {
+      "SerialNumber": "FORMAHEESWOMTST08"
+    },
+    {
+      "SerialNumber": "KRSRSKE2OPEN31"
+    },
+    {
+      "SerialNumber": "BQWT05000440"
+    },
+    {
+      "SerialNumber": "BQWT05000653"
+    },
+    {
+      "SerialNumber": "FWSP01920045"
+    },
+    {
+      "SerialNumber": "FZUP1230372"
+    },
+    {
+      "SerialNumber": "LUC213400353"
+    },
+    {
+      "SerialNumber": "LUC213400377"
+    },
+    {
+      "SerialNumber": "LUC213400369"
+    },
+    {
+      "SerialNumber": "LUC213400357"
+    },
+    {
+      "SerialNumber": "LUC213400348"
+    },
+    {
+      "SerialNumber": "LUC213400320"
+    },
+    {
+      "SerialNumber": "LUC213400382"
+    },
+    {
+      "SerialNumber": "LUC213400371"
+    },
+    {
+      "SerialNumber": "LUC213400344"
+    },
+    {
+      "SerialNumber": "LUC213400315"
+    },
+    {
+      "SerialNumber": "LUC213400312"
+    },
+    {
+      "SerialNumber": "LUC213400389"
+    },
+    {
+      "SerialNumber": "LUC213400372"
+    },
+    {
+      "SerialNumber": "LUC213400314"
+    },
+    {
+      "SerialNumber": "LUC213400393"
+    },
+    {
+      "SerialNumber": "LUC213400396"
+    },
+    {
+      "SerialNumber": "LUC213400299"
+    },
+    {
+      "SerialNumber": "LUC213400309"
+    },
+    {
+      "SerialNumber": "LUC213400401"
+    },
+    {
+      "SerialNumber": "LUC213400374"
+    },
+    {
+      "SerialNumber": "LUC213400291"
+    },
+    {
+      "SerialNumber": "LUC213400294"
+    },
+    {
+      "SerialNumber": "LUC213400403"
+    },
+    {
+      "SerialNumber": "LUC213400406"
+    },
+    {
+      "SerialNumber": "LUC213400290"
+    },
+    {
+      "SerialNumber": "LUC213400289"
+    },
+    {
+      "SerialNumber": "LUC213400288"
+    },
+    {
+      "SerialNumber": "LUC213400287"
+    },
+    {
+      "SerialNumber": "LUC213400391"
+    },
+    {
+      "SerialNumber": "LUC213400284"
+    },
+    {
+      "SerialNumber": "LUC213400285"
+    },
+    {
+      "SerialNumber": "LUC213400410"
+    },
+    {
+      "SerialNumber": "LUC213400283"
+    },
+    {
+      "SerialNumber": "LUC213400274"
+    },
+    {
+      "SerialNumber": "LUC213400280"
+    },
+    {
+      "SerialNumber": "LUC213400281"
+    },
+    {
+      "SerialNumber": "LUC213400413"
+    },
+    {
+      "SerialNumber": "LUC213400418"
+    },
+    {
+      "SerialNumber": "LUC213400417"
+    },
+    {
+      "SerialNumber": "LUC213400278"
+    },
+    {
+      "SerialNumber": "LUC213400277"
+    },
+    {
+      "SerialNumber": "LUC213400272"
+    },
+    {
+      "SerialNumber": "LUF913700257"
+    },
+    {
+      "SerialNumber": "LUF913700252"
+    },
+    {
+      "SerialNumber": "LUC213400383"
+    },
+    {
+      "SerialNumber": "LUC213400336"
+    },
+    {
+      "SerialNumber": "LUC213400355"
+    },
+    {
+      "SerialNumber": "LUC213400376"
+    },
+    {
+      "SerialNumber": "LUC213400319"
+    },
+    {
+      "SerialNumber": "BQPW13700140"
+    },
+    {
+      "SerialNumber": "BQPW13800135"
+    },
+    {
+      "SerialNumber": "BQPW13800137"
+    },
+    {
+      "SerialNumber": "BQF913400238"
+    },
+    {
+      "SerialNumber": "BQF913400226"
+    },
+    {
+      "SerialNumber": "BQF913400234"
+    },
+    {
+      "SerialNumber": "BQF913400237"
+    },
+    {
+      "SerialNumber": "BQF913400239"
+    },
+    {
+      "SerialNumber": "BQF913400233"
+    },
+    {
+      "SerialNumber": "BQF913400217"
+    },
+    {
+      "SerialNumber": "BQF913400220"
+    },
+    {
+      "SerialNumber": "BQF913400232"
+    },
+    {
+      "SerialNumber": "BQF913400240"
+    },
+    {
+      "SerialNumber": "BQF913400241"
+    },
+    {
+      "SerialNumber": "BQF913400208"
+    },
+    {
+      "SerialNumber": "BQF913400218"
+    },
+    {
+      "SerialNumber": "BQF913400219"
+    },
+    {
+      "SerialNumber": "BQF913400242"
+    },
+    {
+      "SerialNumber": "BQF913400243"
+    },
+    {
+      "SerialNumber": "BQF913400205"
+    },
+    {
+      "SerialNumber": "BQF913400214"
+    },
+    {
+      "SerialNumber": "BQF913400216"
+    },
+    {
+      "SerialNumber": "BQF913400244"
+    },
+    {
+      "SerialNumber": "BQF913400202"
+    },
+    {
+      "SerialNumber": "BQF913400200"
+    },
+    {
+      "SerialNumber": "BQF913400245"
+    },
+    {
+      "SerialNumber": "BQF913400206"
+    },
+    {
+      "SerialNumber": "BQF913400207"
+    },
+    {
+      "SerialNumber": "BQF913400250"
+    },
+    {
+      "SerialNumber": "BQF913400197"
+    },
+    {
+      "SerialNumber": "BQF913400203"
+    },
+    {
+      "SerialNumber": "BQF913400204"
+    },
+    {
+      "SerialNumber": "BQF913400251"
+    },
+    {
+      "SerialNumber": "BQF913400192"
+    },
+    {
+      "SerialNumber": "BQF913400194"
+    },
+    {
+      "SerialNumber": "BQF913400195"
+    },
+    {
+      "SerialNumber": "BQF913400199"
+    },
+    {
+      "SerialNumber": "BQF913400254"
+    },
+    {
+      "SerialNumber": "BQF913400183"
+    },
+    {
+      "SerialNumber": "BQF913400256"
+    },
+    {
+      "SerialNumber": "BQF913400193"
+    },
+    {
+      "SerialNumber": "BQF913400255"
+    },
+    {
+      "SerialNumber": "BQF913400179"
+    },
+    {
+      "SerialNumber": "BQF913400175"
+    },
+    {
+      "SerialNumber": "BQF913400257"
+    },
+    {
+      "SerialNumber": "BQF913400190"
+    },
+    {
+      "SerialNumber": "BQF913400173"
+    },
+    {
+      "SerialNumber": "BQF913400155"
+    },
+    {
+      "SerialNumber": "BQF913400154"
+    },
+    {
+      "SerialNumber": "BQF913400169"
+    },
+    {
+      "SerialNumber": "BQF913400259"
+    },
+    {
+      "SerialNumber": "BQF913400260"
+    },
+    {
+      "SerialNumber": "BQF913400147"
+    },
+    {
+      "SerialNumber": "BQF913400146"
+    },
+    {
+      "SerialNumber": "BQF913400262"
+    },
+    {
+      "SerialNumber": "BQF913400159"
+    },
+    {
+      "SerialNumber": "BQF913400261"
+    },
+    {
+      "SerialNumber": "BQF913400141"
+    },
+    {
+      "SerialNumber": "BQF913400138"
+    },
+    {
+      "SerialNumber": "BQF913400263"
+    },
+    {
+      "SerialNumber": "BQF913400153"
+    },
+    {
+      "SerialNumber": "BQF913400137"
+    },
+    {
+      "SerialNumber": "BQF913400134"
+    },
+    {
+      "SerialNumber": "BQF913400135"
+    },
+    {
+      "SerialNumber": "BQF913400136"
+    },
+    {
+      "SerialNumber": "BQF913400264"
+    },
+    {
+      "SerialNumber": "BQF913400265"
+    },
+    {
+      "SerialNumber": "BQF913400270"
+    },
+    {
+      "SerialNumber": "BQF913400266"
+    },
+    {
+      "SerialNumber": "BQF913400131"
+    },
+    {
+      "SerialNumber": "BQF913400267"
+    },
+    {
+      "SerialNumber": "BQF913400268"
+    },
+    {
+      "SerialNumber": "LUC213800007"
+    },
+    {
+      "SerialNumber": "LUC213800009"
+    },
+    {
+      "SerialNumber": "LUF914000162"
+    },
+    {
+      "SerialNumber": "LUF914000164"
+    },
+    {
+      "SerialNumber": "BQMY11100046"
+    },
+    {
+      "SerialNumber": "LUF914000153"
+    },
+    {
+      "SerialNumber": "LUF914000155"
+    },
+    {
+      "SerialNumber": "LUF914000151"
+    },
+    {
+      "SerialNumber": "LUF914000149"
+    },
+    {
+      "SerialNumber": "LUC214100147"
+    },
+    {
+      "SerialNumber": "LUC214000007"
+    },
+    {
+      "SerialNumber": "LUC214000006"
+    },
+    {
+      "SerialNumber": "LUC214000005"
+    },
+    {
+      "SerialNumber": "LUC214000004"
+    },
+    {
+      "SerialNumber": "BQF914200001"
+    },
+    {
+      "SerialNumber": "BQF914200002"
+    },
+    {
+      "SerialNumber": "BQF914300265"
+    },
+    {
+      "SerialNumber": "BQWT14301519"
+    },
+    {
+      "SerialNumber": "BQMZ14400002"
+    },
+    {
+      "SerialNumber": "LUF914300030"
+    },
+    {
+      "SerialNumber": "LUF914300027"
+    },
+    {
+      "SerialNumber": "ADDC14000229"
+    },
+    {
+      "SerialNumber": "ADDC14000233"
+    },
+    {
+      "SerialNumber": "ADDC14000246"
+    },
+    {
+      "SerialNumber": "ADDC14000296"
+    },
+    {
+      "SerialNumber": "ADDC14000340"
+    },
+    {
+      "SerialNumber": "ADDC14000370"
+    },
+    {
+      "SerialNumber": "ADDC14000377"
+    },
+    {
+      "SerialNumber": "ADDC14000470"
+    },
+    {
+      "SerialNumber": "ADDC14000427"
+    },
+    {
+      "SerialNumber": "ADDC14000424"
+    },
+    {
+      "SerialNumber": "BQWT14500268"
+    },
+    {
+      "SerialNumber": "BQWT14500267"
+    },
+    {
+      "SerialNumber": "BQWT14400359"
+    },
+    {
+      "SerialNumber": "BQWT14301098"
+    },
+    {
+      "SerialNumber": "BQC212700063"
+    },
+    {
+      "SerialNumber": "BQC212700064"
+    },
+    {
+      "SerialNumber": "BQC212700065"
+    },
+    {
+      "SerialNumber": "BQC212700066"
+    },
+    {
+      "SerialNumber": "BQC212700067"
+    },
+    {
+      "SerialNumber": "BQC212700068"
+    },
+    {
+      "SerialNumber": "BQC212700069"
+    },
+    {
+      "SerialNumber": "BQC212700070"
+    },
+    {
+      "SerialNumber": "BQC212700073"
+    },
+    {
+      "SerialNumber": "BQC212700071"
+    },
+    {
+      "SerialNumber": "BQC212700072"
+    },
+    {
+      "SerialNumber": "FWSP14520604"
+    },
+    {
+      "SerialNumber": "FZUP1490190"
+    },
+    {
+      "SerialNumber": "LUC214700348"
+    },
+    {
+      "SerialNumber": "LUC214700347"
+    },
+    {
+      "SerialNumber": "LUC214700335"
+    },
+    {
+      "SerialNumber": "LUC214700334"
+    },
+    {
+      "SerialNumber": "LUC214700344"
+    },
+    {
+      "SerialNumber": "LUC214700330"
+    },
+    {
+      "SerialNumber": "LUC214700332"
+    },
+    {
+      "SerialNumber": "LUC214700339"
+    },
+    {
+      "SerialNumber": "LUC214700331"
+    },
+    {
+      "SerialNumber": "LUC214700326"
+    },
+    {
+      "SerialNumber": "LUC214700327"
+    },
+    {
+      "SerialNumber": "LUC214700328"
+    },
+    {
+      "SerialNumber": "LUC214700324"
+    },
+    {
+      "SerialNumber": "LUC214700325"
+    },
+    {
+      "SerialNumber": "LUC214700323"
+    },
+    {
+      "SerialNumber": "LUC214700319"
+    },
+    {
+      "SerialNumber": "LUC214700318"
+    },
+    {
+      "SerialNumber": "LUC214700322"
+    },
+    {
+      "SerialNumber": "LUC214700317"
+    },
+    {
+      "SerialNumber": "LUC214700313"
+    },
+    {
+      "SerialNumber": "LUC214700316"
+    },
+    {
+      "SerialNumber": "LUC214700312"
+    },
+    {
+      "SerialNumber": "LUC214700310"
+    },
+    {
+      "SerialNumber": "LUC214700311"
+    },
+    {
+      "SerialNumber": "LUC214700309"
+    },
+    {
+      "SerialNumber": "LUC214700307"
+    },
+    {
+      "SerialNumber": "LUC214700306"
+    },
+    {
+      "SerialNumber": "LUC214700305"
+    },
+    {
+      "SerialNumber": "LUC214700297"
+    },
+    {
+      "SerialNumber": "LUC214700289"
+    },
+    {
+      "SerialNumber": "LUC214700278"
+    },
+    {
+      "SerialNumber": "LUC214700288"
+    },
+    {
+      "SerialNumber": "LUC214700277"
+    },
+    {
+      "SerialNumber": "LUC214700261"
+    },
+    {
+      "SerialNumber": "LUC214700275"
+    },
+    {
+      "SerialNumber": "LUC214700276"
+    },
+    {
+      "SerialNumber": "LUC214700242"
+    },
+    {
+      "SerialNumber": "LUC214700241"
+    },
+    {
+      "SerialNumber": "LUC214700269"
+    },
+    {
+      "SerialNumber": "LUC214700274"
+    },
+    {
+      "SerialNumber": "LUC214700243"
+    },
+    {
+      "SerialNumber": "LUC214700240"
+    },
+    {
+      "SerialNumber": "LUC214700246"
+    },
+    {
+      "SerialNumber": "LUC214700239"
+    },
+    {
+      "SerialNumber": "LUC214700237"
+    },
+    {
+      "SerialNumber": "LUC214700238"
+    },
+    {
+      "SerialNumber": "LUC214700235"
+    },
+    {
+      "SerialNumber": "LUC214700233"
+    },
+    {
+      "SerialNumber": "LUC214700234"
+    },
+    {
+      "SerialNumber": "LUC214700225"
+    },
+    {
+      "SerialNumber": "LUC214700229"
+    },
+    {
+      "SerialNumber": "LUC214700230"
+    },
+    {
+      "SerialNumber": "LUC214700228"
+    },
+    {
+      "SerialNumber": "LUC214700227"
+    },
+    {
+      "SerialNumber": "LUC214700224"
+    },
+    {
+      "SerialNumber": "LUC214700226"
+    },
+    {
+      "SerialNumber": "BQWT14900353"
+    },
+    {
+      "SerialNumber": "BQC220300114"
+    },
+    {
+      "SerialNumber": "BQC220300112"
+    },
+    {
+      "SerialNumber": "BQC220300116"
+    },
+    {
+      "SerialNumber": "BQC220300115"
+    },
+    {
+      "SerialNumber": "BQC220300113"
+    },
+    {
+      "SerialNumber": "BQC220300108"
+    },
+    {
+      "SerialNumber": "BQC220300109"
+    },
+    {
+      "SerialNumber": "BQC220300110"
+    },
+    {
+      "SerialNumber": "BQC220300111"
+    },
+    {
+      "SerialNumber": "LUC220200013"
+    },
+    {
+      "SerialNumber": "BQC220300103"
+    },
+    {
+      "SerialNumber": "BQC220300107"
+    },
+    {
+      "SerialNumber": "BQC220300106"
+    },
+    {
+      "SerialNumber": "BQC220300101"
+    },
+    {
+      "SerialNumber": "BQC220300102"
+    },
+    {
+      "SerialNumber": "BQC220300104"
+    },
+    {
+      "SerialNumber": "BQC220300105"
+    },
+    {
+      "SerialNumber": "BQE920490116"
+    },
+    {
+      "SerialNumber": "BQF920700067"
+    },
+    {
+      "SerialNumber": "BQF920700066"
+    },
+    {
+      "SerialNumber": "BQF920700065"
+    },
+    {
+      "SerialNumber": "BQF920700064"
+    },
+    {
+      "SerialNumber": "BQF920700068"
+    },
+    {
+      "SerialNumber": "BQF920700062"
+    },
+    {
+      "SerialNumber": "BQF920700063"
+    },
+    {
+      "SerialNumber": "BQF920700060"
+    },
+    {
+      "SerialNumber": "BQF920700061"
+    },
+    {
+      "SerialNumber": "BQF920700059"
+    },
+    {
+      "SerialNumber": "FWSP13620643"
+    },
+    {
+      "SerialNumber": "BQC220400016"
+    },
+    {
+      "SerialNumber": "G6BE952003U5"
+    },
+    {
+      "SerialNumber": "BQPW10300513"
+    },
+    {
+      "SerialNumber": "BQPW10300505"
+    },
+    {
+      "SerialNumber": "FWSP12321696"
+    },
+    {
+      "SerialNumber": "ADCD02701156"
+    },
+    {
+      "SerialNumber": "ADCD02701206"
+    },
+    {
+      "SerialNumber": "LUF912500191"
+    },
+    {
+      "SerialNumber": "LUF912500193"
+    },
+    {
+      "SerialNumber": "LUF912400430"
+    },
+    {
+      "SerialNumber": "LUF912400423"
+    },
+    {
+      "SerialNumber": "LUC213900182"
+    },
+    {
+      "SerialNumber": "LUC213900181"
+    },
+    {
+      "SerialNumber": "LUC213800010"
+    },
+    {
+      "SerialNumber": "LUC213800006"
+    },
+    {
+      "SerialNumber": "LUC213800005"
+    },
+    {
+      "SerialNumber": "BQF914200008"
+    },
+    {
+      "SerialNumber": "BQF914200009"
+    },
+    {
+      "SerialNumber": "BQWT14300044"
+    },
+    {
+      "SerialNumber": "BQWT14300014"
+    },
+    {
+      "SerialNumber": "BQWT14300015"
+    },
+    {
+      "SerialNumber": "BQWT14300016"
+    },
+    {
+      "SerialNumber": "BQWT14300005"
+    },
+    {
+      "SerialNumber": "BQWT14300003"
+    },
+    {
+      "SerialNumber": "ADDC14000521"
+    },
+    {
+      "SerialNumber": "BQWT14900232"
+    },
+    {
+      "SerialNumber": "ADAD02800003"
+    },
+    {
+      "SerialNumber": "ADJC94801014"
+    },
+    {
+      "SerialNumber": "ADJC94801069"
+    },
+    {
+      "SerialNumber": "BQB311390069"
+    },
+    {
+      "SerialNumber": "LUC212800031"
+    },
+    {
+      "SerialNumber": "BQC213300008"
+    },
+    {
+      "SerialNumber": "ADDC13300090"
+    },
+    {
+      "SerialNumber": "ADDC13300287"
+    },
+    {
+      "SerialNumber": "ADDC13300202"
+    },
+    {
+      "SerialNumber": "ADDC13300104"
+    },
+    {
+      "SerialNumber": "LUC213400448"
+    },
+    {
+      "SerialNumber": "LUC213400453"
+    },
+    {
+      "SerialNumber": "LUC213400449"
+    },
+    {
+      "SerialNumber": "LUC213400447"
+    },
+    {
+      "SerialNumber": "LUC213400446"
+    },
+    {
+      "SerialNumber": "LUC213400457"
+    },
+    {
+      "SerialNumber": "LUC213400455"
+    },
+    {
+      "SerialNumber": "LUC213400439"
+    },
+    {
+      "SerialNumber": "LUC213400436"
+    },
+    {
+      "SerialNumber": "LUC213400461"
+    },
+    {
+      "SerialNumber": "LUC213400423"
+    },
+    {
+      "SerialNumber": "LUC213400432"
+    },
+    {
+      "SerialNumber": "LUC213400464"
+    },
+    {
+      "SerialNumber": "LUC213400426"
+    },
+    {
+      "SerialNumber": "LUC213400425"
+    },
+    {
+      "SerialNumber": "LUC213400465"
+    },
+    {
+      "SerialNumber": "LUC213400466"
+    },
+    {
+      "SerialNumber": "LUC213400467"
+    },
+    {
+      "SerialNumber": "LUC213400390"
+    },
+    {
+      "SerialNumber": "LUC213400381"
+    },
+    {
+      "SerialNumber": "LUC213400384"
+    },
+    {
+      "SerialNumber": "LUC213400392"
+    },
+    {
+      "SerialNumber": "LUC213400379"
+    },
+    {
+      "SerialNumber": "LUC213400337"
+    },
+    {
+      "SerialNumber": "LUC213400366"
+    },
+    {
+      "SerialNumber": "LUC213400378"
+    },
+    {
+      "SerialNumber": "LUC213400397"
+    },
+    {
+      "SerialNumber": "LUC213400361"
+    },
+    {
+      "SerialNumber": "LUC213400339"
+    },
+    {
+      "SerialNumber": "LUC213400346"
+    },
+    {
+      "SerialNumber": "LUC213400399"
+    },
+    {
+      "SerialNumber": "LUC213400407"
+    },
+    {
+      "SerialNumber": "LUC213400326"
+    },
+    {
+      "SerialNumber": "LUC213400409"
+    },
+    {
+      "SerialNumber": "LUC213400414"
+    },
+    {
+      "SerialNumber": "LUC213400419"
+    },
+    {
+      "SerialNumber": "LUF913500158"
+    },
+    {
+      "SerialNumber": "LUF913500183"
+    },
+    {
+      "SerialNumber": "LUF913500153"
+    },
+    {
+      "SerialNumber": "LUF913500157"
+    },
+    {
+      "SerialNumber": "LUF913500154"
+    },
+    {
+      "SerialNumber": "LUF913500146"
+    },
+    {
+      "SerialNumber": "LUF913500145"
+    },
+    {
+      "SerialNumber": "LUF913500144"
+    },
+    {
+      "SerialNumber": "LUF913500148"
+    },
+    {
+      "SerialNumber": "LUF913500143"
+    },
+    {
+      "SerialNumber": "LUC213400325"
+    },
+    {
+      "SerialNumber": "LUC213400324"
+    },
+    {
+      "SerialNumber": "LUF913500142"
+    },
+    {
+      "SerialNumber": "LUC213400343"
+    },
+    {
+      "SerialNumber": "LUC213400327"
+    },
+    {
+      "SerialNumber": "LUC213400342"
+    },
+    {
+      "SerialNumber": "BQF913400213"
+    },
+    {
+      "SerialNumber": "BQF913400209"
+    },
+    {
+      "SerialNumber": "BQF913400211"
+    },
+    {
+      "SerialNumber": "BQF913400221"
+    },
+    {
+      "SerialNumber": "BQF913400223"
+    },
+    {
+      "SerialNumber": "BQF913400189"
+    },
+    {
+      "SerialNumber": "BQF913400229"
+    },
+    {
+      "SerialNumber": "BQF913400230"
+    },
+    {
+      "SerialNumber": "BQF913400246"
+    },
+    {
+      "SerialNumber": "BQF913400235"
+    },
+    {
+      "SerialNumber": "BQF913400168"
+    },
+    {
+      "SerialNumber": "BQF913400247"
+    },
+    {
+      "SerialNumber": "BQF913400149"
+    },
+    {
+      "SerialNumber": "BQF913400258"
+    },
+    {
+      "SerialNumber": "BQF913400248"
+    },
+    {
+      "SerialNumber": "BQF913400150"
+    },
+    {
+      "SerialNumber": "LUC213700058"
+    },
+    {
+      "SerialNumber": "BQMZ14400001"
+    },
+    {
+      "SerialNumber": "LUF914300029"
+    },
+    {
+      "SerialNumber": "BQC214500012"
+    },
+    {
+      "SerialNumber": "BQC214500011"
+    },
+    {
+      "SerialNumber": "LUC214500007"
+    },
+    {
+      "SerialNumber": "BQC212700058"
+    },
+    {
+      "SerialNumber": "BQC212700059"
+    },
+    {
+      "SerialNumber": "BQC212700060"
+    },
+    {
+      "SerialNumber": "BQC212700061"
+    },
+    {
+      "SerialNumber": "BQC212700062"
+    },
+    {
+      "SerialNumber": "FWSP14520892"
+    },
+    {
+      "SerialNumber": "FWSP14520805"
+    },
+    {
+      "SerialNumber": "FWSP14520286"
+    },
+    {
+      "SerialNumber": "FWSP14520249"
+    },
+    {
+      "SerialNumber": "FWSP14521097"
+    },
+    {
+      "SerialNumber": "FWSP14521159"
+    },
+    {
+      "SerialNumber": "FWSP14521249"
+    },
+    {
+      "SerialNumber": "BQAM14700002"
+    },
+    {
+      "SerialNumber": "BQAM14700001"
+    },
+    {
+      "SerialNumber": "LUC214700346"
+    },
+    {
+      "SerialNumber": "LUC214700345"
+    },
+    {
+      "SerialNumber": "LUC214700343"
+    },
+    {
+      "SerialNumber": "LUC214700342"
+    },
+    {
+      "SerialNumber": "LUC214700341"
+    },
+    {
+      "SerialNumber": "LUC214700333"
+    },
+    {
+      "SerialNumber": "LUC214700321"
+    },
+    {
+      "SerialNumber": "LUC214700315"
+    },
+    {
+      "SerialNumber": "LUC214700314"
+    },
+    {
+      "SerialNumber": "LUC214700304"
+    },
+    {
+      "SerialNumber": "LUC214700265"
+    },
+    {
+      "SerialNumber": "LUC214700266"
+    },
+    {
+      "SerialNumber": "LUC214700258"
+    },
+    {
+      "SerialNumber": "LUC214700264"
+    },
+    {
+      "SerialNumber": "LUC214700256"
+    },
+    {
+      "SerialNumber": "LUC214700254"
+    },
+    {
+      "SerialNumber": "LUC214700245"
+    },
+    {
+      "SerialNumber": "LUC214700247"
+    },
+    {
+      "SerialNumber": "BQC114400388"
+    },
+    {
+      "SerialNumber": "BQF914900257"
+    },
+    {
+      "SerialNumber": "LUC214900207"
+    },
+    {
+      "SerialNumber": "LUC214900208"
+    },
+    {
+      "SerialNumber": "LUC214900206"
+    },
+    {
+      "SerialNumber": "LUC214900204"
+    },
+    {
+      "SerialNumber": "BQF915000244"
+    },
+    {
+      "SerialNumber": "LUC214800029"
+    },
+    {
+      "SerialNumber": "LUC214700329"
+    },
+    {
+      "SerialNumber": "LUC214700236"
+    },
+    {
+      "SerialNumber": "LUC214900226"
+    },
+    {
+      "SerialNumber": "BQC220400005"
+    },
+    {
+      "SerialNumber": "BQC220400006"
+    },
+    {
+      "SerialNumber": "BQC220400007"
+    },
+    {
+      "SerialNumber": "BQC220400008"
+    },
+    {
+      "SerialNumber": "BQC220400009"
+    },
+    {
+      "SerialNumber": "BQC220400010"
+    },
+    {
+      "SerialNumber": "BQC220400011"
+    },
+    {
+      "SerialNumber": "BQC220400012"
+    },
+    {
+      "SerialNumber": "BQC220400013"
+    },
+    {
+      "SerialNumber": "BQC220400014"
+    },
+    {
+      "SerialNumber": "BQC220400015"
+    },
+    {
+      "SerialNumber": "ADAC92100431"
+    },
+    {
+      "SerialNumber": "ADAD02500247"
+    },
+    {
+      "SerialNumber": "ADAD02500223"
+    },
+    {
+      "SerialNumber": "BQWT10600010"
+    },
+    {
+      "SerialNumber": "ADAD02600653"
+    },
+    {
+      "SerialNumber": "FZUP1260046"
+    },
+    {
+      "SerialNumber": "ADCD02300002"
+    },
+    {
+      "SerialNumber": "BQPW13300126"
+    },
+    {
+      "SerialNumber": "BQPW13300075"
+    },
+    {
+      "SerialNumber": "BQC113300033"
+    },
+    {
+      "SerialNumber": "BQC111700319"
+    },
+    {
+      "SerialNumber": "BQC113300015"
+    },
+    {
+      "SerialNumber": "LUF913200022"
+    },
+    {
+      "SerialNumber": "LUF913200023"
+    },
+    {
+      "SerialNumber": "LUF913200026"
+    },
+    {
+      "SerialNumber": "LUC213400433"
+    },
+    {
+      "SerialNumber": "LUC213400429"
+    },
+    {
+      "SerialNumber": "LUC213400428"
+    },
+    {
+      "SerialNumber": "LUC213400427"
+    },
+    {
+      "SerialNumber": "ADDC13300245"
+    },
+    {
+      "SerialNumber": "ADDC13300121"
+    },
+    {
+      "SerialNumber": "ADDC13300187"
+    },
+    {
+      "SerialNumber": "ADDC13300028"
+    },
+    {
+      "SerialNumber": "ADDC13300029"
+    },
+    {
+      "SerialNumber": "BQF913400166"
+    },
+    {
+      "SerialNumber": "BQF913400178"
+    },
+    {
+      "SerialNumber": "BQF913400171"
+    },
+    {
+      "SerialNumber": "BQF913400170"
+    },
+    {
+      "SerialNumber": "BQF913400165"
+    },
+    {
+      "SerialNumber": "BQF913400161"
+    },
+    {
+      "SerialNumber": "BQF913400196"
+    },
+    {
+      "SerialNumber": "BQF913400172"
+    },
+    {
+      "SerialNumber": "BQF913400162"
+    },
+    {
+      "SerialNumber": "BQF913400160"
+    },
+    {
+      "SerialNumber": "BQF913400198"
+    },
+    {
+      "SerialNumber": "BQF913400201"
+    },
+    {
+      "SerialNumber": "BQF913400151"
+    },
+    {
+      "SerialNumber": "BQF913400157"
+    },
+    {
+      "SerialNumber": "BQF913400156"
+    },
+    {
+      "SerialNumber": "BQF913400210"
+    },
+    {
+      "SerialNumber": "BQF913400176"
+    },
+    {
+      "SerialNumber": "BQF913400145"
+    },
+    {
+      "SerialNumber": "BQF913400144"
+    },
+    {
+      "SerialNumber": "BQF913400143"
+    },
+    {
+      "SerialNumber": "BQF913400212"
+    },
+    {
+      "SerialNumber": "BQF913400142"
+    },
+    {
+      "SerialNumber": "BQF913300155"
+    },
+    {
+      "SerialNumber": "BQF913400133"
+    },
+    {
+      "SerialNumber": "BQF913300156"
+    },
+    {
+      "SerialNumber": "BQF913400215"
+    },
+    {
+      "SerialNumber": "BQF913400222"
+    },
+    {
+      "SerialNumber": "BQF913300154"
+    },
+    {
+      "SerialNumber": "BQF913300153"
+    },
+    {
+      "SerialNumber": "BQF913300152"
+    },
+    {
+      "SerialNumber": "BQF913300151"
+    },
+    {
+      "SerialNumber": "BQF913400188"
+    },
+    {
+      "SerialNumber": "BQF913300149"
+    },
+    {
+      "SerialNumber": "BQF913300150"
+    },
+    {
+      "SerialNumber": "BQF913400224"
+    },
+    {
+      "SerialNumber": "BQF913400225"
+    },
+    {
+      "SerialNumber": "BQF913300148"
+    },
+    {
+      "SerialNumber": "BQF913300146"
+    },
+    {
+      "SerialNumber": "BQF913300147"
+    },
+    {
+      "SerialNumber": "BQF913300145"
+    },
+    {
+      "SerialNumber": "BQF913300144"
+    },
+    {
+      "SerialNumber": "BQF913300139"
+    },
+    {
+      "SerialNumber": "BQF913300142"
+    },
+    {
+      "SerialNumber": "BQF913300143"
+    },
+    {
+      "SerialNumber": "BQF913400227"
+    },
+    {
+      "SerialNumber": "BQF913300136"
+    },
+    {
+      "SerialNumber": "BQF913300135"
+    },
+    {
+      "SerialNumber": "BQF913300140"
+    },
+    {
+      "SerialNumber": "BQF913300141"
+    },
+    {
+      "SerialNumber": "BQF913400228"
+    },
+    {
+      "SerialNumber": "BQF913300137"
+    },
+    {
+      "SerialNumber": "BQF913300134"
+    },
+    {
+      "SerialNumber": "BQF913400231"
+    },
+    {
+      "SerialNumber": "BQF913300138"
+    },
+    {
+      "SerialNumber": "BQF913300133"
+    },
+    {
+      "SerialNumber": "BQF913300130"
+    },
+    {
+      "SerialNumber": "BQF913300131"
+    },
+    {
+      "SerialNumber": "BQF913400249"
+    },
+    {
+      "SerialNumber": "BQF913400236"
+    },
+    {
+      "SerialNumber": "BQF913300132"
+    },
+    {
+      "SerialNumber": "BQF913400269"
+    },
+    {
+      "SerialNumber": "BQF913400253"
+    },
+    {
+      "SerialNumber": "BQF913400252"
+    },
+    {
+      "SerialNumber": "BQF913300129"
+    },
+    {
+      "SerialNumber": "BQF913300128"
+    },
+    {
+      "SerialNumber": "BQF913300122"
+    },
+    {
+      "SerialNumber": "BQF913300121"
+    },
+    {
+      "SerialNumber": "BQF913300125"
+    },
+    {
+      "SerialNumber": "BQF913300126"
+    },
+    {
+      "SerialNumber": "BQF913300127"
+    },
+    {
+      "SerialNumber": "BQF913300123"
+    },
+    {
+      "SerialNumber": "BQF913300124"
+    },
+    {
+      "SerialNumber": "LUC213400412"
+    },
+    {
+      "SerialNumber": "LUC213400360"
+    },
+    {
+      "SerialNumber": "LUC213400334"
+    },
+    {
+      "SerialNumber": "BQWT12800026"
+    },
+    {
+      "SerialNumber": "LUC213400331"
+    },
+    {
+      "SerialNumber": "LUC213400322"
+    },
+    {
+      "SerialNumber": "LUC213400318"
+    },
+    {
+      "SerialNumber": "LUC213400385"
+    },
+    {
+      "SerialNumber": "LUC213400387"
+    },
+    {
+      "SerialNumber": "LUC213400405"
+    },
+    {
+      "SerialNumber": "LUC213400365"
+    },
+    {
+      "SerialNumber": "LUC213500027"
+    },
+    {
+      "SerialNumber": "LUC213400354"
+    },
+    {
+      "SerialNumber": "LUC213500028"
+    },
+    {
+      "SerialNumber": "LUC213400316"
+    },
+    {
+      "SerialNumber": "LUC213500031"
+    },
+    {
+      "SerialNumber": "LUC213400415"
+    },
+    {
+      "SerialNumber": "LUC213400422"
+    },
+    {
+      "SerialNumber": "LUC213400368"
+    },
+    {
+      "SerialNumber": "LUC213400404"
+    },
+    {
+      "SerialNumber": "LUC213400430"
+    },
+    {
+      "SerialNumber": "LUC213400362"
+    },
+    {
+      "SerialNumber": "LUC213400364"
+    },
+    {
+      "SerialNumber": "LUF913500125"
+    },
+    {
+      "SerialNumber": "LUC213400349"
+    },
+    {
+      "SerialNumber": "LUF913500134"
+    },
+    {
+      "SerialNumber": "LUF913500126"
+    },
+    {
+      "SerialNumber": "LUC213400347"
+    },
+    {
+      "SerialNumber": "LUF913500135"
+    },
+    {
+      "SerialNumber": "LUF913500136"
+    },
+    {
+      "SerialNumber": "LUF913500137"
+    },
+    {
+      "SerialNumber": "ADTF13201015"
+    },
+    {
+      "SerialNumber": "BQC113700070"
+    },
+    {
+      "SerialNumber": "BQF914100044"
+    },
+    {
+      "SerialNumber": "BQC214500026"
+    },
+    {
+      "SerialNumber": "BQC214500030"
+    },
+    {
+      "SerialNumber": "BQC214500029"
+    },
+    {
+      "SerialNumber": "BQC214500027"
+    },
+    {
+      "SerialNumber": "BQC214500023"
+    },
+    {
+      "SerialNumber": "BQC214500028"
+    },
+    {
+      "SerialNumber": "BQC214500025"
+    },
+    {
+      "SerialNumber": "BQC214500022"
+    },
+    {
+      "SerialNumber": "BQC214500018"
+    },
+    {
+      "SerialNumber": "BQC214500020"
+    },
+    {
+      "SerialNumber": "BQC214500024"
+    },
+    {
+      "SerialNumber": "BQC214500021"
+    },
+    {
+      "SerialNumber": "BQC214500019"
+    },
+    {
+      "SerialNumber": "BQC214500017"
+    },
+    {
+      "SerialNumber": "BQC214500016"
+    },
+    {
+      "SerialNumber": "BQC214500015"
+    },
+    {
+      "SerialNumber": "BQWT14700847"
+    },
+    {
+      "SerialNumber": "BQC212700057"
+    },
+    {
+      "SerialNumber": "LUC214600039"
+    },
+    {
+      "SerialNumber": "FWSP14521169"
+    },
+    {
+      "SerialNumber": "FWSP14521002"
+    },
+    {
+      "SerialNumber": "FWSP14520055"
+    },
+    {
+      "SerialNumber": "FWSP14520071"
+    },
+    {
+      "SerialNumber": "FWSP14520306"
+    },
+    {
+      "SerialNumber": "FWSP14520515"
+    },
+    {
+      "SerialNumber": "FWSP14520526"
+    },
+    {
+      "SerialNumber": "FWSP14520530"
+    },
+    {
+      "SerialNumber": "FWSP14520542"
+    },
+    {
+      "SerialNumber": "FWSP14520783"
+    },
+    {
+      "SerialNumber": "LUC214700248"
+    },
+    {
+      "SerialNumber": "LUC214700320"
+    },
+    {
+      "SerialNumber": "LUC214700337"
+    },
+    {
+      "SerialNumber": "LUC214700340"
+    },
+    {
+      "SerialNumber": "LUC214700308"
+    },
+    {
+      "SerialNumber": "BQOB20290001"
+    },
+    {
+      "SerialNumber": "FWSP13620591"
+    },
+    {
+      "SerialNumber": "BQWT14600563"
+    },
+    {
+      "SerialNumber": "BQWT14600596"
+    },
+    {
+      "SerialNumber": "BQWT14900065"
+    }
+  ]
+}
