@@ -33,7 +33,9 @@ namespace OrchestrationLayerDemo.Controllers
         public string TraceType = string.Empty;
         public string InputType = string.Empty;
         public string AdditionalReports = string.Empty;
-
+        string grant_type = "";
+        string client_id = "";
+        string client_secret = "";
         List<InputDataItem> items = new List<InputDataItem>()
             {
                 new InputDataItem{text= "FORMAHEESWOMTST01"},
@@ -46,6 +48,9 @@ namespace OrchestrationLayerDemo.Controllers
         public CATTSController(IConfiguration rootObjectIBASE)
         {
             _rootObjectCatts = rootObjectIBASE;
+            grant_type = _rootObjectCatts.GetValue<string>("ClientCredentails:grant_type");
+            client_id = _rootObjectCatts.GetValue<string>("ClientCredentails:client_id");
+            client_secret = _rootObjectCatts.GetValue<string>("ClientCredentails:client_secret");
             _httpclient = new HttpClient();
 
             InputDataXMLBody = _rootObjectCatts.GetValue<string>("CATTSConfiguration:InputDataXMLBody");
@@ -64,11 +69,13 @@ namespace OrchestrationLayerDemo.Controllers
        // [Route("GetInputPayloadData")]
         public IEnumerable<string> GetInputPayloadData()
         {
+            var logFile = System.IO.File.ReadAllLines(@"C:\poc\catts.txt");
+            var VidList = new List<string>(logFile);
             StringBuilder sb = new StringBuilder();
-            foreach (var r in items)
+            foreach (var r in VidList)
             {
                 //  <InputDataItem type='VID'>82GE360604475</InputDataItem>
-                var values = string.Format(InputDataXMLBody.ToString(), InputType, r.text.ToString());
+                var values = string.Format(InputDataXMLBody.ToString(), InputType, r.ToString());
                 sb.Append(values);
             }
             var CattsTcaServiceRequest = sb.ToString();
@@ -108,7 +115,7 @@ namespace OrchestrationLayerDemo.Controllers
                     node.ParentNode.RemoveChild(node);
                 }
 
-                Token token = await auth.GetElibilityToken();
+                Token token = await auth.GetElibilityToken(grant_type,client_id,client_secret);
 
                 _httpclient.DefaultRequestHeaders.Clear();
                 _httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));

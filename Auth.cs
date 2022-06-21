@@ -12,6 +12,7 @@ namespace OrchestrationLayerDemo
     public class Auth
     {
         private readonly IConfiguration _ClientSecrets;
+    
         public Auth()
         {
         }
@@ -22,14 +23,14 @@ namespace OrchestrationLayerDemo
 
         [HttpGet]
         [Route("GetElibilityToken")]
-        public async Task<Token> GetElibilityToken()
+        public async Task<Token> GetElibilityToken(string grant_type, string client_id, string client_secret)
         {
-
+         
             HttpClient client = new HttpClient();
             string baseAddress = @"https://apis-sandbox.intel.com/v1/auth/token";
-            string grant_type = _ClientSecrets.GetValue<string>("ClientCredentails:grant_type");
-            string client_id = _ClientSecrets.GetValue<string>("CATTSConfiguration:client_id");
-            string client_secret = _ClientSecrets.GetValue<string>("CATTSConfiguration:client_secret");
+            //string grant_type = _ClientSecrets.GetValue<string>("ClientCredentails:grant_type");
+            //string client_id = _ClientSecrets.GetValue<string>("CATTSConfiguration:client_id");
+            //string client_secret = _ClientSecrets.GetValue<string>("CATTSConfiguration:client_secret");
 
             var form = new Dictionary<string, string>
                 {

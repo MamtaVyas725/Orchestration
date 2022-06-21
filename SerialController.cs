@@ -39,6 +39,9 @@ namespace OrchestrationDemo.Controllers
         public string TraceType = string.Empty;
         public string InputType = string.Empty;
         public string AdditionalReports = string.Empty;
+        string grant_type = "";
+        string client_id = "";
+        string client_secret = "";
 
         List<Person> listOfSerialNumber = new List<Person>()
             {
@@ -52,6 +55,9 @@ namespace OrchestrationDemo.Controllers
         {
             _rootObjectIBASE = rootObjectIBASE;
             _httpclient = new HttpClient();
+            grant_type = _rootObjectIBASE.GetValue<string>("ClientCredentails:grant_type");
+            client_id = _rootObjectIBASE.GetValue<string>("ClientCredentails:client_id");
+            client_secret = _rootObjectIBASE.GetValue<string>("ClientCredentails:client_secret");
 
         }
 
@@ -87,7 +93,7 @@ namespace OrchestrationDemo.Controllers
                 var webclient = new WebClient();
                 var jsonString = webclient.DownloadString(@"C:\poc\input10.json");
                 var result = JsonConvert.DeserializeObject<RootObject>(jsonString);
-                Token token = await auth.GetElibilityToken();
+                Token token = await auth.GetElibilityToken(grant_type,client_id,client_secret);
 
                 _httpclient.DefaultRequestHeaders.Clear();
                 _httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
