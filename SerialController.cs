@@ -42,6 +42,8 @@ namespace OrchestrationDemo.Controllers
         string grant_type = "";
         string client_id = "";
         string client_secret = "";
+        string InputDataJsonBody = string.Empty;
+        string InputJsonBody = string.Empty;
 
         List<Person> listOfSerialNumber = new List<Person>()
             {
@@ -58,25 +60,29 @@ namespace OrchestrationDemo.Controllers
             grant_type = _rootObjectIBASE.GetValue<string>("ClientCredentails:grant_type");
             client_id = _rootObjectIBASE.GetValue<string>("ClientCredentails:client_id");
             client_secret = _rootObjectIBASE.GetValue<string>("ClientCredentails:client_secret");
+            InputDataJsonBody = _rootObjectIBASE.GetValue<string>("IBASEConfiguration:InputJsonBody");
+            InputJsonBody = _rootObjectIBASE.GetValue<string>("IBASEConfiguration:Input");
 
         }
 
 
         [HttpGet]
-        [Route("GetData")]
-        public IEnumerable<string> GetData()
+        //[Route("GetInutPayloadIBASEData")]
+        public IEnumerable<string> GetInutPayloadIBASEData()
         {
             StringBuilder sb = new StringBuilder();
             foreach (var r in listOfSerialNumber)
             {
                 //  { "SerialNumber": "BQF913400183" }
-                var values = string.Format(InputDataXMLBody.ToString(), "VID", r.SerialNumber.ToString());
-                sb.AppendLine(values);
+                var values = string.Format(InputDataJsonBody.ToString(), r.SerialNumber.ToString());
+                sb.AppendLine("{" + values + "}");
+                sb.Append(",");
             }
-            var final = sb.ToString();
-            var valuesFinal = string.Format(InputXMLBody.ToString(), ApplicationName, UserId, SubOperationName, TraceLevel, TraceType, InputType, AdditionalReports, final.ToString());
+            var InputPayload = "[" + sb.ToString().TrimEnd(',') + "]";
 
-            return new string[] { valuesFinal };
+            var FinalInputPayload = "{" + string.Format(InputJsonBody.ToString(), InputPayload.ToString()) + "}";
+
+            return new string[] { FinalInputPayload };
         }
 
 
@@ -84,33 +90,35 @@ namespace OrchestrationDemo.Controllers
         [Route("GetAsyncData")]
         public async Task<IEnumerable<RootObject>> GetAsyncData()
         {
-            using (StreamReader r = new StreamReader(@"C:\poc\input10.json"))
+            //using (StreamReader r = new StreamReader(@"C:\poc\input10.json"))
+            //{
+            IEnumerable<string> data = GetInutPayloadIBASEData();
+            DateTime start = DateTime.Now;
+            Auth auth = new Auth();
+
+            // string jsonData = r.ReadToEnd();
+            // var webclient = new WebClient();
+            // var jsonString = webclient.DownloadString(@"C:\poc\input10.json");
+
+            var result = JsonConvert.DeserializeObject<RootObject>(((string[])data)[0].ToString());
+            Token token = await auth.GetElibilityToken(grant_type, client_id, client_secret);
+
+            _httpclient.DefaultRequestHeaders.Clear();
+            _httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _httpclient.DefaultRequestHeaders.Add("Authorization", ("Bearer " + token.AccessToken));
+            _httpclient.DefaultRequestHeaders.ConnectionClose = true;
+
+            var batchSize = 5;
+            int numberOfBatches = (int)Math.Ceiling((double)result.Input.Count() / batchSize);
+            var tasks = new List<Task<IEnumerable<RootObject>>>();
+
+            for (int i = 0; i < numberOfBatches; i++)
             {
-                DateTime start = DateTime.Now;
-                Auth auth = new Auth();
-                // Creating a file
-                string jsonData = r.ReadToEnd();
-                var webclient = new WebClient();
-                var jsonString = webclient.DownloadString(@"C:\poc\input10.json");
-                var result = JsonConvert.DeserializeObject<RootObject>(jsonString);
-                Token token = await auth.GetElibilityToken(grant_type,client_id,client_secret);
-
-                _httpclient.DefaultRequestHeaders.Clear();
-                _httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                _httpclient.DefaultRequestHeaders.Add("Authorization", ("Bearer " + token.AccessToken));
-                _httpclient.DefaultRequestHeaders.ConnectionClose = true;
-
-                var batchSize = 5;
-                int numberOfBatches = (int)Math.Ceiling((double)result.Input.Count() / batchSize);
-                var tasks = new List<Task<IEnumerable<RootObject>>>();
-
-                for (int i = 0; i < numberOfBatches; i++)
-                {
-                    var currentSearilNo1 = result.Input.Skip(i * batchSize).Take(batchSize).ToList(); //Here we need to change the logic this this we need to take 100 data on each processing
-                    tasks.Add(GetUsers(currentSearilNo1, start));
-                }
-                return (await Task.WhenAll(tasks)).SelectMany(u => u);
+                var currentSearilNo1 = result.Input.Skip(i * batchSize).Take(batchSize).ToList(); //Here we need to change the logic this this we need to take 100 data on each processing
+                tasks.Add(GetUsers(currentSearilNo1, start));
             }
+            return (await Task.WhenAll(tasks)).SelectMany(u => u);
+            // }
         }
 
 

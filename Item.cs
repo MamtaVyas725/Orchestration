@@ -18,6 +18,7 @@ namespace OrchestrationLayerDemo.Controllers
         public class RootObject 
         {
             public List<Person> Input { get; set; }
+
         }
 
         public class data
