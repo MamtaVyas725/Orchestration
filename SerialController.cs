@@ -1,9 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using OrchestrationLayerDemo;
+using OrchestrationLayerDemo.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -14,6 +19,8 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Xml;
+using static OrchestrationLayerDemo.Controllers.Item;
 
 namespace OrchestrationDemo.Controllers
 {
@@ -21,63 +28,102 @@ namespace OrchestrationDemo.Controllers
     // [Route("api/[controller]")]
     public class SerialController : ControllerBase
     {
+        private readonly IConfiguration _rootObjectIBASE;
         public HttpClient _httpclient;
-        public List<string> links = new List<string>();
-        private RootObject currentSearilNo;
-        public SerialController()
+        public string InputDataXMLBody = string.Empty;
+        public string InputXMLBody = string.Empty;
+        public string ApplicationName = string.Empty;
+        public string UserId = string.Empty;
+        public string SubOperationName = string.Empty;
+        public string TraceLevel = string.Empty;
+        public string TraceType = string.Empty;
+        public string InputType = string.Empty;
+        public string AdditionalReports = string.Empty;
+
+        List<Person> listOfSerialNumber = new List<Person>()
+            {
+                new Person{SerialNumber= "FORMAHEESWOMTST01"},
+                new Person{SerialNumber ="FORMAHEESWOMTST02" },
+                new Person{SerialNumber= "FORMAHEESWOMTST03"},
+                new Person{SerialNumber ="FORMAHEESWOMTST05" },
+            };
+
+        public SerialController(IConfiguration rootObjectIBASE)
         {
+            _rootObjectIBASE = rootObjectIBASE;
             _httpclient = new HttpClient();
+
         }
+
+
+        [HttpGet]
+        [Route("GetData")]
+        public IEnumerable<string> GetData()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var r in listOfSerialNumber)
+            {
+                //  { "SerialNumber": "BQF913400183" }
+                var values = string.Format(InputDataXMLBody.ToString(), "VID", r.SerialNumber.ToString());
+                sb.AppendLine(values);
+            }
+            var final = sb.ToString();
+            var valuesFinal = string.Format(InputXMLBody.ToString(), ApplicationName, UserId, SubOperationName, TraceLevel, TraceType, InputType, AdditionalReports, final.ToString());
+
+            return new string[] { valuesFinal };
+        }
+
+
         [HttpGet]
         [Route("GetAsyncData")]
         public async Task<IEnumerable<RootObject>> GetAsyncData()
         {
-            using (StreamReader r = new StreamReader(@"C:\Users\mamta.b.vyas\Desktop\poc\input500.json"))
+            using (StreamReader r = new StreamReader(@"C:\poc\input10.json"))
             {
-                //  var watch = System.Diagnostics.Stopwatch.StartNew();
+                DateTime start = DateTime.Now;
+                Auth auth = new Auth();
                 // Creating a file
                 string jsonData = r.ReadToEnd();
                 var webclient = new WebClient();
-                var jsonString = webclient.DownloadString(@"C:\Users\mamta.b.vyas\Desktop\poc\input500.json");
+                var jsonString = webclient.DownloadString(@"C:\poc\input10.json");
                 var result = JsonConvert.DeserializeObject<RootObject>(jsonString);
-                Token token = await GetElibilityToken();
-               
+                Token token = await auth.GetElibilityToken();
+
                 _httpclient.DefaultRequestHeaders.Clear();
                 _httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 _httpclient.DefaultRequestHeaders.Add("Authorization", ("Bearer " + token.AccessToken));
                 _httpclient.DefaultRequestHeaders.ConnectionClose = true;
 
-                var batchSize = 20;
+                var batchSize = 5;
                 int numberOfBatches = (int)Math.Ceiling((double)result.Input.Count() / batchSize);
                 var tasks = new List<Task<IEnumerable<RootObject>>>();
-               
+
                 for (int i = 0; i < numberOfBatches; i++)
                 {
-                     var currentSearilNo1 =result.Input.Skip(i * batchSize).Take(batchSize).ToList(); //Here we need to change the logic this this we need to take 100 data on each processing
-                     tasks.Add(GetUsers(currentSearilNo1));
-
+                    var currentSearilNo1 = result.Input.Skip(i * batchSize).Take(batchSize).ToList(); //Here we need to change the logic this this we need to take 100 data on each processing
+                    tasks.Add(GetUsers(currentSearilNo1, start));
                 }
-
                 return (await Task.WhenAll(tasks)).SelectMany(u => u);
             }
         }
 
 
-        public async Task<IEnumerable<RootObject>> GetUsers(List<Person> tasks)
+        public async Task<IEnumerable<RootObject>> GetUsers(List<Person> tasks, DateTime start)
         {
             // Creating a file
-            string myfile = @"C:\Users\mamta.b.vyas\Desktop\poc\Output.json";
+            string myfile = @"C:\poc\Output.json";
 
-            var watch = new Stopwatch();
-            watch.Start();
+            //var watch = new Stopwatch();
+            //watch.Start();
 
             RootObject wrapper = new RootObject { Input = tasks };
             string json = JsonConvert.SerializeObject(wrapper);
 
-         
+
             var buffer = Encoding.UTF8.GetBytes(json);
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
 
             var response = await _httpclient
              .PostAsync(
@@ -85,64 +131,28 @@ namespace OrchestrationDemo.Controllers
                  byteContent)
              .ConfigureAwait(false);
 
-           var resultContent = response.Content.ReadAsStringAsync().Result;
-            
-            //// Appending the given texts
+            var resultContent = response.Content.ReadAsStringAsync().Result;
+            var JSONData = JsonConvert.DeserializeObject(resultContent).ToString();
+
+            //var webclient = new WebClient();
+            //var jsonString = webclient.DownloadString(@"C:\poc\Output.json");
+            //var result11 = JsonConvert.DeserializeObject<RootObject>(JSONData);
+
+
+            ////// Appending the given texts
             using (StreamWriter sw = System.IO.File.AppendText(myfile))
             {
                 // sw.WriteLine("actual processing " + elapsedMs);
                 sw.WriteLine(Environment.NewLine);
                 sw.WriteLine(resultContent);
-                watch.Stop();
-                sw.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
+                // watch.Stop();
+                DateTime end = DateTime.Now;
+                TimeSpan ts = (end - start);
+                sw.WriteLine("Elapsed Time is {0} ms", ts.TotalSeconds);
             }
 
-            var users = JsonConvert.DeserializeObject<IEnumerable<RootObject>>(JsonConvert.SerializeObject(resultContent)).ToList();
-            return users;
+            var users = JsonConvert.DeserializeObject<IEnumerable<RootObject>>(resultContent).ToList();
+            return users.ToList();
         }
-
-
-        [HttpGet]
-        [Route("GetElibilityToken")]
-        public async Task<Token> GetElibilityToken()
-        {
-            HttpClient client = new HttpClient();
-            string baseAddress = @"https://apis-sandbox.intel.com/v1/auth/token";
-
-            string grant_type = "client_credentials";
-            string client_id = "1033a1f3-6808-4b85-91a8-1f7e69fecea7";
-            string client_secret = "r3e8Q~7SoNCuh1CO1FXbHMcl5~4a~JHLCwYkAbES";
-
-            var form = new Dictionary<string, string>
-                {
-                    {"grant_type", grant_type},
-                    {"client_id", client_id},
-                    {"client_secret", client_secret},
-                };
-
-            HttpResponseMessage tokenResponse = await client.PostAsync(baseAddress, new FormUrlEncodedContent(form));
-            var jsonContent = await tokenResponse.Content.ReadAsStringAsync();
-            Token tok = JsonConvert.DeserializeObject<Token>(jsonContent);
-            return tok;
-        }
-
-        public class Token
-        {
-            [JsonProperty("access_token")]
-            public string AccessToken { get; set; }
-
-            [JsonProperty("token_type")]
-            public string TokenType { get; set; }
-
-            [JsonProperty("expires_in")]
-            public int ExpiresIn { get; set; }
-
-            [JsonProperty("refresh_token")]
-            public string RefreshToken { get; set; }
-        }
-
-
-
-
     }
 }

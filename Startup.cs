@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static OrchestrationLayerDemo.Controllers.Item;
 
 namespace OrchestrationLayerDemo
 {
@@ -32,6 +33,11 @@ namespace OrchestrationLayerDemo
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OrchestrationLayerDemo", Version = "v1" });
             });
+
+            services.AddSingleton(Configuration);
+           // services.AddOptions<RootObject>().Bind(Configuration.GetSection("IBASEConfiguration"));
+            //services.Configure<RootObject>(Configuration.GetSection("IBASEConfiguration"));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
