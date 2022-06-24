@@ -21,7 +21,7 @@ namespace OrchestrationLayerDemo.Controllers
 
         }
 
-        public class data
+        public class Output
         {
             public string SerialNumber { get; set; }
 
@@ -40,18 +40,18 @@ namespace OrchestrationLayerDemo.Controllers
             public string WarrantySerialNumber { get; set; }
 
         }
-        public class RootObjectOutput
+   
+        public class WarrantyOutputJSON
         {
-            public RootObjectWarrantyOutput Warranty { get; set; }
-
-
-        }
-        public class RootObjectWarrantyOutput
-        {
-            public List<data> Output { get; set; }
+            //public string Warranty { get; set; }
+            public List<Output> Output { get; set; }
         }
 
+        public class RootObjectWarrantyOutputJSON
+        {
+            public WarrantyOutputJSON Warranty { get; set; }
 
+        }
 
 
     }
