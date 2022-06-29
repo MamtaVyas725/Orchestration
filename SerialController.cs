@@ -44,6 +44,7 @@ namespace OrchestrationDemo.Controllers
         string client_secret = "";
         string InputDataJsonBody = string.Empty;
         string InputJsonBody = string.Empty;
+       
 
         List<Person> listOfSerialNumber = new List<Person>()
             {
@@ -62,7 +63,7 @@ namespace OrchestrationDemo.Controllers
             client_secret = _rootObjectIBASE.GetValue<string>("ClientCredentails:client_secret");
             InputDataJsonBody = _rootObjectIBASE.GetValue<string>("IBASEConfiguration:InputJsonBody");
             InputJsonBody = _rootObjectIBASE.GetValue<string>("IBASEConfiguration:Input");
-
+           
         }
 
 
@@ -115,7 +116,9 @@ namespace OrchestrationDemo.Controllers
             for (int i = 0; i < numberOfBatches; i++)
             {
                 var currentSearilNo1 = result.Input.Skip(i * batchSize).Take(batchSize).ToList(); //Here we need to change the logic this this we need to take 100 data on each processing
-                tasks.Add(GetUsers(currentSearilNo1, start));
+                tasks.Add(GetUsers(currentSearilNo1, start)); //ibase
+                //tasks.Add(GetUsers(currentSearilNo1, start)); //catts
+                //tasks.Add(GetUsers(currentSearilNo1, start)); //irc2
             }
             return (await Task.WhenAll(tasks)).SelectMany(u => u);
             // }
@@ -168,5 +171,6 @@ namespace OrchestrationDemo.Controllers
             var users = JsonConvert.DeserializeObject<IEnumerable<RootObject>>(resultContent).ToList();
             return users.ToList();
         }
+
     }
 }

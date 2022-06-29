@@ -66,10 +66,10 @@ namespace OrchestrationLayerDemo.Controllers
         }
 
         [HttpGet]
-       // [Route("GetInputPayloadData")]
+        // [Route("GetInputPayloadData")]
         public IEnumerable<string> GetInputPayloadData()
         {
-            var logFile = System.IO.File.ReadAllLines(@"C:\poc\catts.txt");
+            var logFile = System.IO.File.ReadAllLines(@"C:\poc\Ct.txt");
             var VidList = new List<string>(logFile);
             StringBuilder sb = new StringBuilder();
             foreach (var r in VidList)
@@ -87,7 +87,7 @@ namespace OrchestrationLayerDemo.Controllers
 
         [HttpGet]
         [Route("GetCATTSAsyncData")]
-        public async Task<IEnumerable<CattsTcaServiceObjMain>> GetCATTSAsyncData()
+        public async  Task<string> GetCATTSAsyncData()
         {
             IEnumerable<string> data = GetInputPayloadData();
             var byteArray = data.SelectMany(s => Encoding.UTF8.GetBytes(s)).ToArray();
@@ -95,53 +95,51 @@ namespace OrchestrationLayerDemo.Controllers
             stream.Write(byteArray, 0, byteArray.Length);
             //using (StreamReader r = new StreamReader(@"C:\poc\CATTS\inputxm.json"))
             //{
-                XmlDocument doc = new XmlDocument();
-                DateTime start = DateTime.Now;
-                Auth auth = new Auth();
-                if (stream.Position > 0)
-                {
-                    stream.Position = 0;
-                }
+            XmlDocument doc = new XmlDocument();
+            DateTime start = DateTime.Now;
+            Auth auth = new Auth();
+            if (stream.Position > 0)
+            {
+                stream.Position = 0;
+            }
 
-                doc.Load(stream);
+            doc.Load(stream);
 
-                string jsonString11 = JsonConvert.SerializeXmlNode(doc);
-                var newJson = jsonString11.Replace("@", "").Replace("#", "");
-                var result = JsonConvert.DeserializeObject<CattsTcaServiceObjMain>(newJson);
+            string jsonString11 = JsonConvert.SerializeXmlNode(doc);
+            var newJson = jsonString11.Replace("@", "").Replace("#", "");
+            var result = JsonConvert.DeserializeObject<CattsTcaServiceObjMain>(newJson);
+            foreach (XmlNode node in doc.SelectSingleNode("//InputData/InputDataItem"))
+            {
+                node.ParentNode.RemoveChild(node);
+            }
 
+            Token token = await auth.GetElibilityToken(grant_type, client_id, client_secret);
 
-                foreach (XmlNode node in doc.SelectSingleNode("//InputData/InputDataItem"))
-                {
-                    node.ParentNode.RemoveChild(node);
-                }
+            _httpclient.DefaultRequestHeaders.Clear();
+            _httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _httpclient.DefaultRequestHeaders.Add("Authorization", ("Bearer " + token.AccessToken));
+            _httpclient.DefaultRequestHeaders.ConnectionClose = true;
 
-                Token token = await auth.GetElibilityToken(grant_type,client_id,client_secret);
+            var batchSize = 500;
+            int numberOfBatches = (int)Math.Ceiling((double)result.CattsTcaServiceRequest.InputData.InputDataItem.Count() / batchSize);
+            var tasks = new List<Task<IEnumerable<ResultCATT>>>();
 
-                _httpclient.DefaultRequestHeaders.Clear();
-                _httpclient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                _httpclient.DefaultRequestHeaders.Add("Authorization", ("Bearer " + token.AccessToken));
-                _httpclient.DefaultRequestHeaders.ConnectionClose = true;
-
-                var batchSize = 200;
-                int numberOfBatches = (int)Math.Ceiling((double)result.CattsTcaServiceRequest.InputData.InputDataItem.Count() / batchSize);
-                var tasks = new List<Task<IEnumerable<CattsTcaServiceObjMain>>>();
-
-                for (int i = 0; i < numberOfBatches; i++)
-                {
-                    var currentSearilNo = result.CattsTcaServiceRequest.InputData.InputDataItem.Skip(i * batchSize).Take(batchSize).ToList(); //Here we need to change the logic this this we need to take 100 data on each processing
-                    tasks.Add(GetCattsBatchWiseData(doc, currentSearilNo, start));
-
-                }
-
-                return (await Task.WhenAll(tasks)).SelectMany(u => u);
-           // }
+            for (int i = 0; i < numberOfBatches; i++)
+            {
+                var currentSearilNo = result.CattsTcaServiceRequest.InputData.InputDataItem.Skip(i * batchSize).Take(batchSize).ToList(); //Here we need to change the logic this this we need to take 100 data on each processing
+                tasks.Add(GetCattsBatchWiseData(doc, currentSearilNo, start));
+            }
+            (await Task.WhenAll(tasks)).SelectMany(u => u);
+            return "Total Time taken :";
+           // return (await Task.WhenAll(tasks)).SelectMany(u => u);
+            // }
         }
 
 
-        public async Task<IEnumerable<CattsTcaServiceObjMain>> GetCattsBatchWiseData(XmlDocument doc, List<InputDataItem> tasks, DateTime start)
+        public async Task<IEnumerable<ResultCATT>> GetCattsBatchWiseData(XmlDocument doc, List<InputDataItem> tasks, DateTime start)
         {
             // Creating a file
-            string myfile = @"C:\poc\Output.xml";
+            string myfile = @"C:\poc\CATTS150.xml";
 
             try
             {
@@ -180,11 +178,15 @@ namespace OrchestrationLayerDemo.Controllers
                     // watch.Stop();
                     DateTime end = DateTime.Now;
                     TimeSpan ts = (end - start);
-                    sw.WriteLine("Elapsed Time is {0} ms", ts.TotalSeconds);
+                    sw.WriteLine("Elapsed Time is {0} ms", ts.TotalMilliseconds);
                 }
-
-                var users = JsonConvert.DeserializeObject<IEnumerable<CattsTcaServiceObjMain>>(resultContent).ToList();
-                return users.ToList();
+                CommonController cm = new CommonController();
+                var Json1 = cm.XmlToJson(resultContent);
+                var newJson = Json1.Replace("Transaction Details\":{", "TransactionDetails\":[{").Replace("ErrorMessage\":null}", "ErrorMessage\":null}]").Replace("Transaction Details", "TransactionDetails").Replace("Input Report", "InputReport").Replace("Box Report", "BoxReport").Replace("Unit Trace", "UnitTrace").Replace("Batch Report", "BatchReport");
+                var CATTData = JsonConvert.DeserializeObject<ResultCATT>(newJson);
+                List<ResultCATT> objjsonCatts = new List<ResultCATT>();
+                objjsonCatts.Add(CATTData);
+                return objjsonCatts;
             }
             catch (Exception ex)
             {
